@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Trafilt</string>
+    <string name="sign_in">sign in</string>
+    <string name="welcome">welcome,</string>
+    <string name="sign_in_to_continue">sign in to continue</string>
+    <string name="background_image">background_image</string>
+    <string name="email">email</string>
+    <string name="password">password</string>
+    <string name="or">or</string>
+    <string name="dont_have_an_account">Don’t have an account yet?</string>
+    <string name="scan_only">scan only</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="sign_up_to_create_an_account">Sign up to create an account</string>
+    <string name="name">name</string>
+    <string name="already_heave_an_account">Already heave an account?</string>
+</resources>
