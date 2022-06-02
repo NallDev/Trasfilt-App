@@ -13,4 +13,5 @@
     <string name="sign_up_to_create_an_account">Sign up to create an account</string>
     <string name="name">name</string>
     <string name="already_heave_an_account">Already heave an account?</string>
+    <string name="title_activity_sell_trash">SellTrashActivity</string>
 </resources>

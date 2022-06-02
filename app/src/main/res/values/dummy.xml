@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="data_name">
+        <item>Bandung Bersih</item>
+        <item>Bekasi Bersih</item>
+        <item>Jakarta Bersih</item>
+        <item>Tanggerang Bersih</item>
+        <item>Bogor Bersih</item>
+        <item>Bali Bersih</item>
+        <item>Trenggalek Bersih</item>
+        <item>Pacitan Bersih</item>
+        <item>Jambi Bersih</item>
+    </string-array>
+
+    <string-array name="data_phone">
+        <item>082222222221</item>
+        <item>082222222222</item>
+        <item>082222222223</item>
+        <item>082222222224</item>
+        <item>082222222225</item>
+        <item>082222222226</item>
+        <item>082222222227</item>
+        <item>082222222228</item>
+        <item>082222222229</item>
+    </string-array>
+
+    <string-array name="data_city">
+        <item>Bandung</item>
+        <item>Bekasi</item>
+        <item>Jakarta</item>
+        <item>Tanggerang</item>
+        <item>Bogor</item>
+        <item>Bali</item>
+        <item>Trenggalek</item>
+        <item>Pacitan</item>
+        <item>Jambi</item>
+    </string-array>
+</resources>

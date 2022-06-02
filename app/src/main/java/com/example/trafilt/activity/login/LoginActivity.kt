@@ -1,9 +1,12 @@
-package com.example.trafilt
+package com.example.trafilt.activity.login
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.trafilt.activity.MainActivity
+import com.example.trafilt.activity.RegisterActivity
 import com.example.trafilt.databinding.ActivityLoginBinding
+import com.example.trafilt.lightStatusBar
 
 class LoginActivity : AppCompatActivity() {
     private var _binding: ActivityLoginBinding? = null

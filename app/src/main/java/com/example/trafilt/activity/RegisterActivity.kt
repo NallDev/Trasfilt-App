@@ -1,9 +1,11 @@
-package com.example.trafilt
+package com.example.trafilt.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.trafilt.activity.login.LoginActivity
 import com.example.trafilt.databinding.ActivityRegisterBinding
+import com.example.trafilt.lightStatusBar
 
 class RegisterActivity : AppCompatActivity() {
     private var _binding : ActivityRegisterBinding? = null
