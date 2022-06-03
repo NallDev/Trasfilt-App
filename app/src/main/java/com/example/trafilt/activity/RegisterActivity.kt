@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.trafilt.activity.login.LoginActivity
 import com.example.trafilt.databinding.ActivityRegisterBinding
-import com.example.trafilt.lightStatusBar
+import com.example.trafilt.utility.lightStatusBar
 
 class RegisterActivity : AppCompatActivity() {
     private var _binding : ActivityRegisterBinding? = null

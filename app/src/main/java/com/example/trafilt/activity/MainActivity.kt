@@ -6,8 +6,9 @@ import android.os.Bundle
 import android.view.View
 import com.example.trafilt.R
 import com.example.trafilt.activity.pickup.PickUpActivity
+import com.example.trafilt.activity.selltrash.SellTrashActivity
 import com.example.trafilt.databinding.ActivityMainBinding
-import com.example.trafilt.lightStatusBar
+import com.example.trafilt.utility.lightStatusBar
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     private var _binding : ActivityMainBinding? = null
@@ -20,13 +21,18 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         lightStatusBar(window)
 
-        binding.pickUp.setOnClickListener(this)
+            binding.pickUp.setOnClickListener(this)
+            binding.sellTrash.setOnClickListener(this)
     }
 
     override fun onClick(view: View?) {
         when(view?.id){
             R.id.pick_up -> {
                 val intent = Intent(this, PickUpActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.sell_trash -> {
+                val intent = Intent(this, SellTrashActivity::class.java)
                 startActivity(intent)
             }
         }

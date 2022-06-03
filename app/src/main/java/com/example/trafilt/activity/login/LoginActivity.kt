@@ -6,7 +6,7 @@ import android.os.Bundle
 import com.example.trafilt.activity.MainActivity
 import com.example.trafilt.activity.RegisterActivity
 import com.example.trafilt.databinding.ActivityLoginBinding
-import com.example.trafilt.lightStatusBar
+import com.example.trafilt.utility.lightStatusBar
 
 class LoginActivity : AppCompatActivity() {
     private var _binding: ActivityLoginBinding? = null

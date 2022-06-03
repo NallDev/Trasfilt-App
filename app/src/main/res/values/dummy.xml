@@ -35,4 +35,28 @@
         <item>Pacitan</item>
         <item>Jambi</item>
     </string-array>
+
+    <string-array name="lat">
+        <item>-6.905977</item>
+        <item>-6.241586</item>
+        <item>-6.2087634</item>
+        <item>-6.178306</item>
+        <item>-6.597629</item>
+        <item>-8.739184</item>
+        <item>-8.086410</item>
+        <item>-8.195569</item>
+        <item>-1.640134</item>
+    </string-array>
+
+    <string-array name="lon">
+        <item>107.613144</item>
+        <item>106.992416</item>
+        <item>106.845599</item>
+        <item>106.631889</item>
+        <item>106.799568</item>
+        <item>115.171127</item>
+        <item>111.713127</item>
+        <item>111.099692</item>
+        <item>101.889175</item>
+    </string-array>
 </resources>

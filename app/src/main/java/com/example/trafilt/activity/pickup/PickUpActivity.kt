@@ -7,9 +7,8 @@ import android.os.Bundle
 import com.example.trafilt.R
 import com.example.trafilt.adapter.ListPickUpAdapter
 import com.example.trafilt.databinding.ActivityPickUpBinding
-import com.example.trafilt.lightStatusBar
+import com.example.trafilt.utility.lightStatusBar
 import com.example.trafilt.model.PickupData
-import com.google.android.material.snackbar.Snackbar
 
 class PickUpActivity : AppCompatActivity() {
     private var _binding: ActivityPickUpBinding? = null

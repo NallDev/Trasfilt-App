@@ -11,11 +11,15 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.example.trafilt.databinding.ActivitySellTrashBinding
+import com.example.trafilt.utility.lightStatusBar
+import com.example.trafilt.model.LocationData
 
 class SellTrashActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
     private lateinit var binding: ActivitySellTrashBinding
+    private val list = ArrayList<LocationData>()
+    private var locationMap: ArrayList<LatLng>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,27 +27,50 @@ class SellTrashActivity : AppCompatActivity(), OnMapReadyCallback {
         binding = ActivitySellTrashBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+        lightStatusBar(window)
+
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
     }
 
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
-        // Add a marker in Sydney and move the camera
-        val sydney = LatLng(-34.0, 151.0)
-        mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+        list.addAll(listLocations)
+        locationMap = ArrayList()
+
+        mMap.uiSettings.apply {
+            isZoomControlsEnabled = true
+            isCompassEnabled = true
+            isMapToolbarEnabled = true
+        }
+
+        for (i in list.indices){
+            locationMap!!.add(LatLng(list[i].lat.toDouble(), list[i].long.toDouble()))
+
+            mMap.addMarker(
+                MarkerOptions()
+                    .position(locationMap!![i])
+                    .title(list[i].name)
+                    .snippet(list[i].address)
+            )
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(locationMap!![i], 15f))
+        }
     }
+
+    private val listLocations: ArrayList<LocationData>
+        get() {
+            val lat = resources.getStringArray(R.array.lat)
+            val long = resources.getStringArray(R.array.lon)
+            val name = resources.getStringArray(R.array.data_name)
+            val address = resources.getStringArray(R.array.data_city)
+            val listLocation = ArrayList<LocationData>()
+            for (i in lat.indices){
+                val location = LocationData(lat[i], long[i], name[i], address[i])
+                listLocation.add(location)
+            }
+            return listLocation
+        }
+
 }

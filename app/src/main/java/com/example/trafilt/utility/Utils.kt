@@ -1,4 +1,4 @@
-package com.example.trafilt
+package com.example.trafilt.utility
 
 import android.view.Window
 import androidx.core.view.WindowInsetsControllerCompat
