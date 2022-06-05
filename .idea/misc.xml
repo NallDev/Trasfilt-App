@@ -10,12 +10,14 @@
         <entry key="..\:/latihan/kotlin intermediate/Trafilt/app/src/main/res/drawable/sell_trash_bg.xml" value="0.1" />
         <entry key="..\:/latihan/kotlin intermediate/Trafilt/app/src/main/res/layout-v23/activity_main.xml" value="0.1" />
         <entry key="..\:/latihan/kotlin intermediate/Trafilt/app/src/main/res/layout/activity_login.xml" value="0.264" />
-        <entry key="..\:/latihan/kotlin intermediate/Trafilt/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/latihan/kotlin intermediate/Trafilt/app/src/main/res/layout/activity_main.xml" value="0.15789473684210525" />
         <entry key="..\:/latihan/kotlin intermediate/Trafilt/app/src/main/res/layout/activity_pick_up.xml" value="0.2" />
         <entry key="..\:/latihan/kotlin intermediate/Trafilt/app/src/main/res/layout/activity_register.xml" value="0.4" />
+        <entry key="..\:/latihan/kotlin intermediate/Trafilt/app/src/main/res/layout/activity_result_scan.xml" value="0.16" />
         <entry key="..\:/latihan/kotlin intermediate/Trafilt/app/src/main/res/layout/activity_sell_trash.xml" value="0.24139492753623187" />
         <entry key="..\:/latihan/kotlin intermediate/Trafilt/app/src/main/res/layout/item_pick_up.xml" value="0.2872467222884386" />
         <entry key="..\:/latihan/kotlin intermediate/Trafilt/app/src/main/res/layout/tooltip_map.xml" value="0.536" />
+        <entry key="..\:/latihan/kotlin intermediate/Trafilt/app/src/main/res/xml/file_paths.xml" value="0.12552083333333333" />
       </map>
     </option>
   </component>

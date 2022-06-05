@@ -1,0 +1,9 @@
+Baterai
+Biologis
+Kaca
+Kain
+Kardus
+Kertas
+Metal
+Plastik
+Sepatu
