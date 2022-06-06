@@ -105,7 +105,7 @@ class RegisterActivity : AppCompatActivity() {
             override fun afterTextChanged(s: Editable) {
             }
         })
-        binding.textLogin.setOnClickListener {
+        binding.signIn.setOnClickListener {
             startActivity(Intent(this@RegisterActivity, LoginActivity::class.java))
             finish()
         }
