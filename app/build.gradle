@@ -14,7 +14,7 @@ android {
         targetSdk 32
         versionCode 1
         versionName "1.0"
-        buildConfigField("String", "BASE_URL", '"https://story-api.dicoding.dev/v1/"')
+        buildConfigField("String", "BASE_URL", '"https://trafilt.et.r.appspot.com/api/"')
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 

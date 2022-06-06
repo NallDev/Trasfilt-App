@@ -4,9 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/latihan/kotlin intermediate/Trafilt/app/src/main/res/drawable/card_effect.xml" value="0.107" />
+        <entry key="..\:/latihan/kotlin intermediate/Trafilt/app/src/main/res/drawable/ic_marker.xml" value="0.1435" />
         <entry key="..\:/latihan/kotlin intermediate/Trafilt/app/src/main/res/drawable/ic_phone.xml" value="0.107" />
         <entry key="..\:/latihan/kotlin intermediate/Trafilt/app/src/main/res/drawable/pickup_bg.xml" value="0.1" />
         <entry key="..\:/latihan/kotlin intermediate/Trafilt/app/src/main/res/drawable/ripple_effect.xml" value="0.15" />
+        <entry key="..\:/latihan/kotlin intermediate/Trafilt/app/src/main/res/drawable/scan_bg.xml" value="0.1435" />
         <entry key="..\:/latihan/kotlin intermediate/Trafilt/app/src/main/res/drawable/sell_trash_bg.xml" value="0.1" />
         <entry key="..\:/latihan/kotlin intermediate/Trafilt/app/src/main/res/layout-v23/activity_main.xml" value="0.1" />
         <entry key="..\:/latihan/kotlin intermediate/Trafilt/app/src/main/res/layout/activity_login.xml" value="0.264" />

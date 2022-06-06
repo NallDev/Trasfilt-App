@@ -7,9 +7,11 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
@@ -17,6 +19,7 @@ import com.example.trafilt.R
 import com.example.trafilt.activity.pickup.PickUpActivity
 import com.example.trafilt.activity.scan.ResultScanActivity
 import com.example.trafilt.activity.selltrash.SellTrashActivity
+import com.example.trafilt.activity.selltrash.SellTrashViewModel
 import com.example.trafilt.databinding.ActivityMainBinding
 import com.example.trafilt.utility.createCustomTempFile
 import com.example.trafilt.utility.lightStatusBar
