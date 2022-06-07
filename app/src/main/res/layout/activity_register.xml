@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.RegisterActivity">
+    tools:context=".activity.register.RegisterActivity">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="wrap_content"
@@ -44,8 +44,8 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <EditText
-        android:id="@+id/editText2"
+    <com.example.trafilt.activity.customview.NameEditText
+        android:id="@+id/name"
         android:layout_width="312dp"
         android:layout_height="67dp"
         android:layout_marginTop="115dp"
@@ -60,8 +60,8 @@
         app:layout_constraintTop_toTopOf="@+id/imageView"
         tools:ignore="TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck" />
 
-    <EditText
-        android:id="@+id/editText"
+    <com.example.trafilt.activity.customview.EmailEditText
+        android:id="@+id/email"
         android:layout_width="312dp"
         android:layout_height="67dp"
         android:layout_marginTop="8dp"
@@ -74,35 +74,34 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintTop_toBottomOf="@+id/name" />
 
-    <EditText
-        android:id="@+id/editText3"
+    <com.example.trafilt.activity.customview.PasswordEditText
+        android:id="@+id/password"
         android:layout_width="312dp"
         android:layout_height="67dp"
         android:layout_marginTop="8dp"
         android:autofillHints="password"
         android:background="@drawable/bg_edit_text"
         android:hint="@string/password"
-        android:inputType="text"
+        android:inputType="textPassword"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintTop_toBottomOf="@+id/email" />
 
-    <Button
-        android:id="@+id/scan"
+    <com.example.trafilt.activity.customview.RegisterButton
+        android:id="@+id/btn_signup"
         android:layout_width="312dp"
         android:layout_height="48dp"
         android:layout_marginTop="38dp"
-        android:backgroundTint="@color/blue_dark"
         android:text="@string/sign_up"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText3" />
+        app:layout_constraintTop_toBottomOf="@+id/password" />
 
     <TextView
         android:id="@+id/textView2"
@@ -116,7 +115,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.36"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scan" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_signup" />
 
     <TextView
         android:id="@+id/sign_in"
@@ -128,6 +127,18 @@
         app:layout_constraintBottom_toBottomOf="@+id/textView2"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toTopOf="@+id/textView2" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminateDrawable="@drawable/progress_bar"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

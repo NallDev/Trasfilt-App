@@ -2,37 +2,26 @@ package com.example.trafilt.api
 
 import com.google.gson.annotations.SerializedName
 
-data class Response(
+data class Register(
+	@field:SerializedName("user_email")
+	val email: String,
 
-    @field:SerializedName("loginResult")
-    val loginResult: LoginResult,
+	@field:SerializedName("user_name")
+	val name: String,
 
-    @field:SerializedName("error")
-    val error: Boolean,
-
-    @field:SerializedName("message")
-    val message: String
+	@field:SerializedName("user_password")
+	val password: String
 )
 
-data class LoginResult(
+data class Login(
+	@field:SerializedName("error")
+	val error: Boolean,
 
-    @field:SerializedName("name")
-    val name: String,
+	@field:SerializedName("message")
+	val message: String,
 
-    @field:SerializedName("userId")
-    val userId: String,
-
-    @field:SerializedName("token")
-    val token: String
-)
-
-data class BaseResponse(
-
-    @field:SerializedName("error")
-    val error: Boolean,
-
-    @field:SerializedName("message")
-    val message: String
+//	@field:SerializedName("loginResult")
+//	val loginResult: UserData
 )
 
 data class SellTrashItem(

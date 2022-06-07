@@ -8,19 +8,19 @@ import retrofit2.http.POST
 
 interface ApiService {
     @FormUrlEncoded
-    @POST("login")
+    @POST("loginUser")
     fun login(
-        @Field("email") email : String,
-        @Field("password") password : String
-    ): Call<Response>
+        @Field("user_email") email : String,
+        @Field("user_password") password : String
+    ): Call<Login>
 
     @FormUrlEncoded
-    @POST("register")
-    fun register(
-        @Field("name") name : String,
-        @Field("email") email : String,
-        @Field("password") password: String
-    ): Call<BaseResponse>
+    @POST("createUser")
+    fun postRegister(
+        @Field("user_name") name : String,
+        @Field("user_email") email : String,
+        @Field("user_password") password: String
+    ): Call<Register>
 
     @GET("readDatasell")
     fun getSellTrashLocation(): Call<List<SellTrashItem>>
