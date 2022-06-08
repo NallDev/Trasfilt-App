@@ -21,12 +21,11 @@
         <activity
             android:name=".activity.scan.ResultScanActivity"
             android:exported="false"
-            android:parentActivityName=".activity.MainActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activity.MainActivity" />
+<!--            <meta-data-->
+<!--                android:name="android.support.PARENT_ACTIVITY"-->
+<!--                android:value=".activity.MainActivity" />-->
         </activity>
 
         <meta-data
@@ -53,7 +52,12 @@
             android:name=".activity.register.RegisterActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".activity.login.LoginActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.login.LoginActivity" />
+        </activity>
         <activity
             android:name=".activity.MainActivity"
             android:screenOrientation="portrait"
@@ -63,6 +67,7 @@
             android:name=".activity.login.LoginActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity"
+            android:launchMode="singleTop"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -18,14 +18,15 @@ import com.example.trafilt.utility.lightStatusBar
 class SellTrashActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
-    private lateinit var binding: ActivitySellTrashBinding
+    private var _binding: ActivitySellTrashBinding? = null
+    private val binding get() = _binding!!
     private var locationMap: ArrayList<LatLng>? = null
     private val sellTrashViewModel : SellTrashViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivitySellTrashBinding.inflate(layoutInflater)
+        _binding = ActivitySellTrashBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         lightStatusBar(window)
@@ -66,5 +67,10 @@ class SellTrashActivity : AppCompatActivity(), OnMapReadyCallback {
                 }
             }
         }
+    }
+
+    override fun onDestroy() {
+        _binding = null
+        super.onDestroy()
     }
 }

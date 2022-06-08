@@ -1,5 +1,6 @@
 package com.example.trafilt.activity.register
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -8,6 +9,7 @@ import android.util.Patterns
 import android.view.View
 import androidx.activity.viewModels
 import com.example.trafilt.R
+import com.example.trafilt.activity.login.LoginActivity
 import com.example.trafilt.databinding.ActivityRegisterBinding
 import com.google.android.material.snackbar.Snackbar
 
@@ -24,6 +26,10 @@ class RegisterActivity : AppCompatActivity() {
         setButton()
         inputListener()
         registerCheck()
+        binding.signIn.setOnClickListener{
+            onBackPressed()
+            finish()
+        }
     }
 
     private fun registerCheck() {
@@ -38,16 +44,21 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         registerViewModel.isSuccess.observe(this) {
-            if (it) binding.apply {
-                name.setText("")
-                email.setText("")
-                password.setText("")
-                Snackbar.make(binding.root, R.string.register_success, Snackbar.LENGTH_SHORT).show()
+            if (it){
+                binding.apply {
+                    name.setText("")
+                    email.setText("")
+                    password.setText("")
+                }
+                val intent = Intent(this, LoginActivity::class.java)
+                intent.putExtra("Message", this.getString(R.string.register_success))
+                startActivity(intent)
+                finish()
             } else Snackbar.make(binding.root, R.string.already_exists, Snackbar.LENGTH_SHORT).show()
         }
 
         registerViewModel.isLoading.observe(this) {
-            showsLoading(it)
+            showProgressBar(it)
         }
     }
 
@@ -121,7 +132,18 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
-    private fun showsLoading(isLoading: Boolean) {
-        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
+    private fun showProgressBar(isLoading: Boolean) {
+        binding.loading.visibility = if (isLoading) View.VISIBLE else View.GONE
+    }
+
+    override fun navigateUpTo(upIntent: Intent?): Boolean {
+        onBackPressed()
+        finish()
+        return super.navigateUpTo(upIntent)
+    }
+
+    override fun onDestroy() {
+        _binding = null
+        super.onDestroy()
     }
 }

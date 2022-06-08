@@ -38,49 +38,34 @@
         app:layout_constraintVertical_bias="0.0"
         tools:listitem="@layout/item_pick_up" />
 
-    <androidx.cardview.widget.CardView
+    <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/loading"
         android:visibility="gone"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="50dp"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
-            <ProgressBar
-                android:id="@+id/progressBar2"
-                style="?android:attr/progressBarStyle"
-                android:layout_width="wrap_content"
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/progress_bar"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:paddingBottom="60dp"
+                android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="50dp"
-                android:fontFamily="@font/montserrat_regular"
-                android:text="@string/loading"
-                android:textColor="@color/black"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/progressBar2"
-                app:layout_constraintStart_toStartOf="@+id/progressBar2"
-                app:layout_constraintTop_toBottomOf="@+id/progressBar2" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <include layout="@layout/item_shimmer"/>
+                <include layout="@layout/item_shimmer"/>
+                <include layout="@layout/item_shimmer"/>
+                <include layout="@layout/item_shimmer"/>
+                <include layout="@layout/item_shimmer"/>
+                <include layout="@layout/item_shimmer"/>
+                <include layout="@layout/item_shimmer"/>
 
-    </androidx.cardview.widget.CardView>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </ScrollView>
+    </com.facebook.shimmer.ShimmerFrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

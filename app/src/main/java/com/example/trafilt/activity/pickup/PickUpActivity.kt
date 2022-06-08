@@ -10,7 +10,6 @@ import androidx.activity.viewModels
 import com.example.trafilt.adapter.ListPickUpAdapter
 import com.example.trafilt.api.PickUpItem
 import com.example.trafilt.databinding.ActivityPickUpBinding
-import com.example.trafilt.utility.LoadingDialog
 import com.example.trafilt.utility.lightStatusBar
 
 class PickUpActivity : AppCompatActivity() {
@@ -68,5 +67,10 @@ class PickUpActivity : AppCompatActivity() {
         pickUpViewModel.isLoading.observe(this) {
             showProgressBar(it)
         }
+    }
+
+    override fun onDestroy() {
+        _binding = null
+        super.onDestroy()
     }
 }

@@ -16,10 +16,12 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import com.example.trafilt.R
+import com.example.trafilt.activity.login.LoginActivity
 import com.example.trafilt.activity.pickup.PickUpActivity
 import com.example.trafilt.activity.scan.ResultScanActivity
 import com.example.trafilt.activity.selltrash.SellTrashActivity
 import com.example.trafilt.activity.selltrash.SellTrashViewModel
+import com.example.trafilt.data.PrefManager
 import com.example.trafilt.databinding.ActivityMainBinding
 import com.example.trafilt.utility.createCustomTempFile
 import com.example.trafilt.utility.lightStatusBar
@@ -28,6 +30,7 @@ import java.io.File
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     private var _binding: ActivityMainBinding? = null
     private val binding get() = _binding!!
+    private lateinit var prefManager: PrefManager
 
     override fun onRequestPermissionsResult(
         requestCode: Int,
@@ -57,6 +60,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(binding.root)
 
         lightStatusBar(window)
+        init()
 
         if (!allPermissionsGranted()) {
             ActivityCompat.requestPermissions(
@@ -66,9 +70,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             )
         }
 
+        checkLogin()
         binding.pickUp.setOnClickListener(this)
         binding.sellTrash.setOnClickListener(this)
         binding.scan.setOnClickListener(this)
+        binding.cvLogout.setOnClickListener(this)
     }
 
     override fun onClick(view: View?) {
@@ -84,6 +90,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             R.id.sell_trash -> {
                 val intent = Intent(this, SellTrashActivity::class.java)
                 startActivity(intent)
+            }
+            R.id.cv_logout -> {
+                let {
+                    prefManager.removeData()
+                    val intent = Intent(it, LoginActivity::class.java)
+                    it.startActivity(intent)
+                    it.finish()
+                }
             }
         }
     }
@@ -110,16 +124,24 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     ) {
         if (it.resultCode == RESULT_OK) {
             val myFile = File(currentPhotoPath)
-//            Silakan gunakan kode ini jika mengalami perubahan rotasi
-//            val result = rotateBitmap(
-//                BitmapFactory.decodeFile(myFile.path),
-//                true
-//            )
-
             val intent = Intent(this, ResultScanActivity::class.java)
             intent.putExtra("Image", myFile.path)
             startActivity(intent)
         }
+    }
+
+    private fun checkLogin() {
+        if (prefManager.isLogin() == false) {
+            let {
+                val intent = Intent(it, LoginActivity::class.java)
+                it.startActivity(intent)
+                it.finish()
+            }
+        }
+    }
+
+    private fun init() {
+        prefManager = PrefManager(this)
     }
 
     companion object {

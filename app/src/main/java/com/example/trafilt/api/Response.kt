@@ -2,27 +2,15 @@ package com.example.trafilt.api
 
 import com.google.gson.annotations.SerializedName
 
-data class Register(
-	@field:SerializedName("user_email")
-	val email: String,
-
-	@field:SerializedName("user_name")
-	val name: Int,
-
-	@field:SerializedName("user_password")
-	val password: String
-)
-
 data class Login(
+	@field:SerializedName("methode")
+	val methode: String,
 
 	@field:SerializedName("data")
 	val data: List<DataUser>,
 
 	@field:SerializedName("message")
-	val message: String,
-
-	@field:SerializedName("status")
-	val status: String
+	val message: String
 )
 
 data class DataUser(
@@ -58,6 +46,18 @@ data class DataUser(
 
 	@field:SerializedName("user_number")
 	val userNumber: String
+)
+
+
+data class Register(
+	@field:SerializedName("user_email")
+	val email: String,
+
+	@field:SerializedName("user_name")
+	val name: Int,
+
+	@field:SerializedName("user_password")
+	val password: String
 )
 
 data class SellTrashItem(
