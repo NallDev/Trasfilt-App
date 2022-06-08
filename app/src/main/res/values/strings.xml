@@ -20,4 +20,5 @@
     <string name="invalid_password">Password less than 8 characters</string>
     <string name="register_success">Registration Successful</string>
     <string name="already_exists">Account already exists</string>
+    <string name="loading">Loading...</string>
 </resources>

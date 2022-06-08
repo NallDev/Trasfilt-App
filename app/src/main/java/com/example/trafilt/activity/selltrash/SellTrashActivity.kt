@@ -40,6 +40,8 @@ class SellTrashActivity : AppCompatActivity(), OnMapReadyCallback {
 
         locationMap = ArrayList()
 
+
+
         mMap.uiSettings.apply {
             isZoomControlsEnabled = true
             isCompassEnabled = true

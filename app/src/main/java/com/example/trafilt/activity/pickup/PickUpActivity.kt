@@ -5,10 +5,12 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.activity.viewModels
 import com.example.trafilt.adapter.ListPickUpAdapter
 import com.example.trafilt.api.PickUpItem
 import com.example.trafilt.databinding.ActivityPickUpBinding
+import com.example.trafilt.utility.LoadingDialog
 import com.example.trafilt.utility.lightStatusBar
 
 class PickUpActivity : AppCompatActivity() {
@@ -16,7 +18,6 @@ class PickUpActivity : AppCompatActivity() {
     private val binding get() = _binding!!
     private val pickUpViewModel : PickUpViewModel by viewModels()
     private val listPickUpAdapter by lazy { ListPickUpAdapter() }
-    private val list = ArrayList<PickUpItem>()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,6 +31,8 @@ class PickUpActivity : AppCompatActivity() {
         lightStatusBar(window)
 
         binding.rvPickUp.setHasFixedSize(true)
+
+        progressBar()
 
         val listPickUp = ArrayList<PickUpItem>()
         pickUpViewModel.showPickUp()
@@ -55,5 +58,15 @@ class PickUpActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         })
+    }
+
+    private fun showProgressBar(isLoading: Boolean) {
+        binding.loading.visibility = if (isLoading) View.VISIBLE else View.GONE
+    }
+
+    private fun progressBar() {
+        pickUpViewModel.isLoading.observe(this) {
+            showProgressBar(it)
+        }
     }
 }
