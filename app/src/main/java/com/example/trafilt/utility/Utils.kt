@@ -5,7 +5,7 @@ import android.os.Environment
 import android.view.Window
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.recyclerview.widget.DiffUtil
-import com.example.trafilt.api.PickUpItem
+import com.example.trafilt.model.PickUpModel
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
@@ -28,8 +28,8 @@ fun createCustomTempFile(context: Context): File {
 }
 
 class MyDiffUtil(
-    private val oldList: List<PickUpItem>,
-    private val newList: List<PickUpItem>
+    private val oldList: List<PickUpModel>,
+    private val newList: List<PickUpModel>
 ) : DiffUtil.Callback(){
     override fun getOldListSize(): Int = oldList.size
 

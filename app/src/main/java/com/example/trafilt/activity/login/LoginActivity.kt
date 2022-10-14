@@ -79,9 +79,29 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         setButton()
         inputListener()
         loginCheck()
+        loginWithDummy()
 
         binding.signUp.setOnClickListener(this)
         binding.scan.setOnClickListener(this)
+    }
+
+    private fun loginWithDummy() {
+        binding.signIn.setOnClickListener{
+            showProgressBar(true)
+            Handler(Looper.getMainLooper()).postDelayed(
+                {
+                    if(dummyEmailPass(binding.email.text.toString(), binding.password.text.toString())){
+                        Intent(this, MainActivity::class.java).also {
+                            prefManager.setLogin(true)
+                            startActivity(it)
+                            finish()
+                        }
+                    }
+                    showProgressBar(false)
+                },
+                3000
+            )
+        }
     }
 
     private fun loginCheck() {
@@ -208,6 +228,17 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                 it.startActivity(intent)
                 it.finish()
             }
+        }
+    }
+
+    private fun dummyEmailPass(email :String, pass: String) : Boolean{
+        return if (email == "afrinaldi@gmail.com" && pass == "12345678"){
+            Toast.makeText(this, R.string.login_success, Toast.LENGTH_SHORT).show()
+            true
+        } else {
+
+            Toast.makeText(this, R.string.login_fail, Toast.LENGTH_SHORT).show()
+            false
         }
     }
 

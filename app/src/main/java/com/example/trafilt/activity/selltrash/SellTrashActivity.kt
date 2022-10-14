@@ -41,31 +41,45 @@ class SellTrashActivity : AppCompatActivity(), OnMapReadyCallback {
 
         locationMap = ArrayList()
 
-
-
         mMap.uiSettings.apply {
             isZoomControlsEnabled = true
             isCompassEnabled = true
             isMapToolbarEnabled = true
         }
 
-        sellTrashViewModel.getAllSellTrash()
-        sellTrashViewModel.getLocation().observe(this){
-            if (it != null){
-                for (i in it.indices){
-                    locationMap!!.add(LatLng(it[i].latSellTrash.toDouble(), it[i].longSellTrash.toDouble()))
+//        sellTrashViewModel.getAllSellTrash()
+//        sellTrashViewModel.getLocation().observe(this){
+//            if (it != null){
+//                for (i in it.indices){
+//                    locationMap!!.add(LatLng(it[i].latSellTrash.toDouble(), it[i].longSellTrash.toDouble()))
+//
+//                    Log.e("data", locationMap!![i].toString())
+//
+//                    mMap.addMarker(
+//                        MarkerOptions()
+//                            .position(locationMap!![i])
+//                            .title(it[i].nameSellTrash)
+//                            .snippet(it[i].addressSellTrash)
+//                    )
+//                    mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(locationMap!![i], 15f))
+//                }
+//            }
+//        }
+        val name = resources.getStringArray(R.array.data_name)
+        val city = resources.getStringArray(R.array.data_city)
+        val lat = resources.getStringArray(R.array.lat)
+        val lon = resources.getStringArray(R.array.lon)
+        for (i in lat.indices){
+            locationMap!!.add(LatLng(lat[i].toDouble(), lon[i].toDouble()))
+            Log.e("data", locationMap!![i].toString())
 
-                    Log.e("data", locationMap!![i].toString())
-
-                    mMap.addMarker(
-                        MarkerOptions()
-                            .position(locationMap!![i])
-                            .title(it[i].nameSellTrash)
-                            .snippet(it[i].addressSellTrash)
-                    )
-                    mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(locationMap!![i], 15f))
-                }
-            }
+            mMap.addMarker(
+                MarkerOptions()
+                    .position(locationMap!![i])
+                    .title(name[i])
+                    .snippet(city[i])
+            )
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(locationMap!![i], 15f))
         }
     }
 

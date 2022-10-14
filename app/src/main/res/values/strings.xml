@@ -38,4 +38,6 @@
 
     <string name="login_fail">Login failed, check email/password</string>
     <string name="login_success">Login success, Welcome to trafilt </string>
+    <string name="noted">Note : you can\'t register, because the service has expired.</string>
+    <string name="login_info">Please login with email : afrinaldi@gmail.com and password : 12345678</string>
 </resources>

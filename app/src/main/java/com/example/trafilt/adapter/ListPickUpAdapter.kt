@@ -4,12 +4,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.trafilt.api.PickUpItem
 import com.example.trafilt.databinding.ItemPickUpBinding
+import com.example.trafilt.model.PickUpModel
 import com.example.trafilt.utility.MyDiffUtil
 
 class ListPickUpAdapter : RecyclerView.Adapter<ListPickUpAdapter.ListViewHolder>() {
-    private var oldPickUpList = emptyList<PickUpItem>()
+    private var oldPickUpList = emptyList<PickUpModel>()
 
     private lateinit var onItemClickCallback: OnItemClickCallback
 
@@ -34,10 +34,10 @@ class ListPickUpAdapter : RecyclerView.Adapter<ListPickUpAdapter.ListViewHolder>
     class ListViewHolder(val binding: ItemPickUpBinding): RecyclerView.ViewHolder(binding.root)
 
     interface OnItemClickCallback {
-        fun onItemClicked(data: PickUpItem)
+        fun onItemClicked(data: PickUpModel)
     }
 
-    fun setData(newPickUpList: List<PickUpItem>){
+    fun setData(newPickUpList: List<PickUpModel>){
         val diffUtil = MyDiffUtil(oldPickUpList, newPickUpList)
         val diffResult = DiffUtil.calculateDiff(diffUtil)
         oldPickUpList = newPickUpList

@@ -23,14 +23,11 @@
             android:exported="false"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity">
-<!--            <meta-data-->
-<!--                android:name="android.support.PARENT_ACTIVITY"-->
-<!--                android:value=".activity.MainActivity" />-->
         </activity>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDmnhyby993Fj4gqE7bP4hepELd8FmvsRY" />
+            android:value="AIzaSyC3rEiMshzA-g52hTUne8K4yC24Hc75qb8" />
 
         <activity
             android:name=".activity.selltrash.SellTrashActivity"
